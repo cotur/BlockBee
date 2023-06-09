@@ -38,13 +38,7 @@ namespace Cotur.BlockBee
         };
 
 
-        protected RestClient Client = new RestClient(new RestClientOptions
-        {
-            BaseUrl = new Uri("https://api.blockbee.io/"),
-            FailOnDeserializationError = false,
-            ThrowOnAnyError = false,
-            ThrowOnDeserializationError = false
-        }, configureSerialization: s => s.UseNewtonsoftJson(JsonSerializerSettings));
+        protected readonly RestClient Client; 
         
         #endregion
 
@@ -53,9 +47,17 @@ namespace Cotur.BlockBee
         public BlockBeeClient(IOptions<BlockBeeOptions> options)
         {
             Options = options.Value;
+            
+            Client = new RestClient(new RestClientOptions
+            {
+                BaseUrl = new Uri(Options.BaseUrl),
+                FailOnDeserializationError = false,
+                ThrowOnAnyError = false,
+                ThrowOnDeserializationError = false
+            }, configureSerialization: s => s.UseNewtonsoftJson(JsonSerializerSettings));
         }
         
-        public async Task<InfoDto> GetSupportedCoinsAsync()
+        public async Task<SupportedCoinsInfo> GetSupportedCoinsAsync()
         {
             var request = new RestRequest("info")
                 .AddParameter("apikey", Options.ApiKey);
@@ -67,7 +69,7 @@ namespace Cotur.BlockBee
                 throw new BlockBeeClientException($"Error for {nameof(GetSupportedCoinsAsync)}, status code: {response.StatusCode}, details: {response.Content} ");
             }
             
-            var infoDto = new InfoDto();
+            var infoDto = new SupportedCoinsInfo();
 
             var jObject = JObject.Parse(response.Content);
 
@@ -242,7 +244,8 @@ namespace Cotur.BlockBee
             bool usePost = false,
             bool multiToken = false,
             bool multiChain = false,
-            bool convert = false)
+            bool convert = false,
+            Dictionary<string, string> extraParams = null)
         {
             if (string.IsNullOrWhiteSpace(ticker))
             {
@@ -281,6 +284,14 @@ namespace Cotur.BlockBee
                 .AddParameter("multi_chain", multiChain ? 1 : 0)
                 .AddParameter("convert", convert ? 1 : 0);
 
+            if (extraParams != null)
+            {
+                foreach (var extraParam in extraParams)
+                {
+                    request = request.AddParameter(extraParam.Key, extraParam.Value);
+                }
+            }
+            
             var response = await Client.ExecuteGetAsync(request);
 
             if (!response.IsSuccessStatusCode)

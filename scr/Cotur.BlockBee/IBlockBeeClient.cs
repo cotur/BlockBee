@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cotur.BlockBee.Contracts.Models;
 using Cotur.BlockBee.Contracts.Models.Checkouts;
@@ -10,7 +11,7 @@ namespace Cotur.BlockBee
 {
     public interface IBlockBeeClient
     {
-        Task<InfoDto> GetSupportedCoinsAsync();
+        Task<SupportedCoinsInfo> GetSupportedCoinsAsync();
         
         /// <summary>
         /// Use this method to retrieve information about the cryptocurrency you intend to use. This endpoint provides detailed information about the selected cryptocurrency.
@@ -66,6 +67,7 @@ namespace Cotur.BlockBee
         /// <param name="multiToken">Allows customers to pay with any token supported by the system, even if the token is different from what the user initially specified.</param>
         /// <param name="multiChain">If enabled, allows you to create the same address on BEP-20, ERC-20 and POLYGON blockchains, which enables you to receive payments on BEP-20, ERC-20 and POLYGON blockchains.</param>
         /// <param name="convert">If enabled, returns the converted value converted to FIAT in the callback</param>
+        /// <param name="extraParams">Any parameter you wish to send to identify the payment, such as {orderId: 1234}</param>
         /// <returns></returns>
         Task<AddressCreationInfo> CreateNewAddressAsync(
             string ticker,
@@ -77,7 +79,8 @@ namespace Cotur.BlockBee
             bool usePost = false,
             bool multiToken = false,
             bool multiChain = false,
-            bool convert = false);
+            bool convert = false,
+            Dictionary<string, string> extraParams = null);
 
         /// <summary>
         /// Use this method to create a new Payout Request, which is a request for a payment you wish to send to your customers.

@@ -2,7 +2,7 @@
 
 namespace Cotur.BlockBee.Contracts.Models
 {
-    public class InfoDto
+    public class SupportedCoinsInfo
     {
         public Dictionary<string, CryptoCurrencyInfo> CryptoCurrencies { get; set; } = new Dictionary<string, CryptoCurrencyInfo>();
 
