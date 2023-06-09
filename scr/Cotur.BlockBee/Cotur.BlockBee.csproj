@@ -11,13 +11,19 @@
         <Authors>cotur</Authors>
         <Description>BlockBee API .NET wrapper.</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <RepositoryUrl>https://github.com/cotur/Cotur.BlockBee</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/cotur/BlockBee</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/cotur/BlockBee</PackageProjectUrl>
         <RepositoryType>git</RepositoryType>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
     
     <ItemGroup>
         <None Include="..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath />
+        </None>
+        <None Include="..\..\README.md">
             <Pack>True</Pack>
             <PackagePath />
         </None>

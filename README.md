@@ -20,6 +20,24 @@
  * Payouts
    * Create a Payout Request
 
+## Installation
+
+You can download the source code and add it your your project.
+
+Alternatively, you can use NuGet to install the package.
+
+### .NET CLI
+
+```bash
+dotnet add package Cotur.BlockBee
+```
+
+### Package Manager
+
+```bash
+Install-Package Cotur.BlockBee
+```
+
 ## Usage
 
 ### Without DI
