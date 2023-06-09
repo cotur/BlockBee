@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{94904998-6345-4261-B354-73B379D3C129}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotur.BlockBee", "scr\Cotur.BlockBee\Cotur.BlockBee.csproj", "{BF87353D-DF00-4264-95B8-82B6D619CE24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cotur.BlockBee.Contracts", "scr\Cotur.BlockBee.Contracts\Cotur.BlockBee.Contracts.csproj", "{E6E4086E-2D18-41DA-8FAC-25BC59BFFD82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{195E5DB8-23C1-4C9F-8219-49CB5F202114}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockBeeClientTests", "tests\BlockBeeClientTests\BlockBeeClientTests.csproj", "{DAF87B8A-1919-4EAB-BC82-45AB7B784EF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF87353D-DF00-4264-95B8-82B6D619CE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF87353D-DF00-4264-95B8-82B6D619CE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF87353D-DF00-4264-95B8-82B6D619CE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF87353D-DF00-4264-95B8-82B6D619CE24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6E4086E-2D18-41DA-8FAC-25BC59BFFD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E4086E-2D18-41DA-8FAC-25BC59BFFD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E4086E-2D18-41DA-8FAC-25BC59BFFD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E4086E-2D18-41DA-8FAC-25BC59BFFD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAF87B8A-1919-4EAB-BC82-45AB7B784EF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAF87B8A-1919-4EAB-BC82-45AB7B784EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAF87B8A-1919-4EAB-BC82-45AB7B784EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAF87B8A-1919-4EAB-BC82-45AB7B784EF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF87353D-DF00-4264-95B8-82B6D619CE24} = {94904998-6345-4261-B354-73B379D3C129}
+		{E6E4086E-2D18-41DA-8FAC-25BC59BFFD82} = {94904998-6345-4261-B354-73B379D3C129}
+		{DAF87B8A-1919-4EAB-BC82-45AB7B784EF2} = {195E5DB8-23C1-4C9F-8219-49CB5F202114}
+	EndGlobalSection
+EndGlobal
